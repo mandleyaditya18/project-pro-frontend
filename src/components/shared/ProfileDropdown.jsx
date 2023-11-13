@@ -1,5 +1,6 @@
-import { Avatar, Button } from '@radix-ui/themes'
+import { Button } from '@radix-ui/themes'
 import Dropdown from '../ui/Dropdown'
+import Avatar from '../ui/Avatar'
 
 const OPTIONS = [
   { label: 'My Profile', value: 'profile' },
