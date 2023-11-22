@@ -1,4 +1,4 @@
-import { Flex, Separator } from '@radix-ui/themes'
+import { Separator } from '@radix-ui/themes'
 
 import Header from './Header'
 import Sidebar from './Sidebar'
@@ -6,15 +6,17 @@ import Sidebar from './Sidebar'
 const Layout = ({ children }) => {
   return (
     <div className="flex w-screen h-screen">
-      <Flex width="100%" direction="row" height="100%">
+      <div className="flex w-full h-full">
         <Sidebar />
         <Separator orientation="vertical" size="4" />
-        <Flex direction="column" width="100%" height="100%">
+        <div className="flex flex-col w-full h-full overflow-auto">
           <Header />
           <Separator orientation="horizontal" size="4" />
-          <main className="p-4">{children}</main>
-        </Flex>
-      </Flex>
+          <main className="p-4 h-full flex flex-col overflow-auto">
+            {children}
+          </main>
+        </div>
+      </div>
     </div>
   )
 }

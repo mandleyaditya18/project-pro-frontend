@@ -24,7 +24,7 @@ const PROJECTS = [
 
 const Sidebar = () => {
   return (
-    <aside className="h-full w-60 flex flex-col gap-12 p-4">
+    <aside className="h-full w-52 flex flex-col gap-12 p-4">
       <h1 className="font-semibold text-2xl px-2">ProjectPro</h1>
       <ul>
         {MENU.map(({ key, label, icon }) => (

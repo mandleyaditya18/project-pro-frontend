@@ -1,4 +1,4 @@
-import { Tabs, Box } from '@radix-ui/themes'
+import { Tabs, Flex } from '@radix-ui/themes'
 import {
   DividerVerticalIcon,
   ViewVerticalIcon,
@@ -23,37 +23,39 @@ const App = () => {
         <h1 className="font-semibold text-2xl px-2">Project 1</h1>
         <Members members={MEMBERS} max={1} />
       </div>
-      <Tabs.Root defaultValue="overview">
-        <Tabs.List className="flex justify-between">
-          <div className="flex">
-            <Tabs.Trigger value="overview">Overview</Tabs.Trigger>
-            <Tabs.Trigger value="issues">Issues</Tabs.Trigger>
-          </div>
-          <div className="flex items-center gap-4 px-4">
-            <span className="flex items-center gap-1">
-              <MixerHorizontalIcon />
-              Filter
-            </span>
-            <DividerVerticalIcon />
-            <span className="flex items-center gap-1">
-              <ViewVerticalIcon /> Board
-            </span>
-            <span className="flex items-center gap-1">
-              <ListBulletIcon /> List
-            </span>
-          </div>
-        </Tabs.List>
+      <div className="h-full">
+        <Tabs.Root defaultValue="issues">
+          <Tabs.List className="flex justify-between">
+            <div className="flex">
+              <Tabs.Trigger value="overview">Overview</Tabs.Trigger>
+              <Tabs.Trigger value="issues">Issues</Tabs.Trigger>
+            </div>
+            <div className="flex items-center gap-4 px-4">
+              <span className="flex items-center gap-1">
+                <MixerHorizontalIcon />
+                Filter
+              </span>
+              <DividerVerticalIcon />
+              <span className="flex items-center gap-1">
+                <ViewVerticalIcon /> Board
+              </span>
+              <span className="flex items-center gap-1">
+                <ListBulletIcon /> List
+              </span>
+            </div>
+          </Tabs.List>
 
-        <Box px="4" pt="3" pb="2" className="bg-red">
-          <Tabs.Content value="overview">
-            <ProjectOverview />
-          </Tabs.Content>
+          <Flex direction="column" className="px-4 py-2 overflow-auto">
+            <Tabs.Content value="overview" style={{ height: '100%' }}>
+              <ProjectOverview />
+            </Tabs.Content>
 
-          <Tabs.Content value="issues">
-            <IssuesContainer />
-          </Tabs.Content>
-        </Box>
-      </Tabs.Root>
+            <Tabs.Content value="issues" style={{ height: '100%' }}>
+              <IssuesContainer />
+            </Tabs.Content>
+          </Flex>
+        </Tabs.Root>
+      </div>
     </Layout>
   )
 }
